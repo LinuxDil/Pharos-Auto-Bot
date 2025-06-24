@@ -128,13 +128,15 @@ class PharosTestnet:
         )
 
     def welcome(self):
-        figlet = Figlet(font='ansi_shadow')
-        banner_lines = figlet.renderText('BG WIN').splitlines()
-        term_width = shutil.get_terminal_size().columns
+        figlet = Figlet(font='ansi_shadow') 
+        banner = figlet.renderText("Pharos Bot")
 
-        for line in banner_lines:
-            print(Fore.GREEN + Style.BRIGHT + line.center(term_width) + Style.RESET_ALL
-        )
+        terminal_width = shutil.get_terminal_size().columns
+        centered_banner = "\n".join(line.center(terminal_width) for line in banner.splitlines())
+
+        print(Fore.CYAN + Style.BRIGHT + centered_banner)
+        print(Fore.GREEN + Style.BRIGHT + "Pharos Auto Testnet by Bg WIN".center(terminal_width))
+
 
     def format_seconds(self, seconds):
         hours, remainder = divmod(seconds, 3600)
